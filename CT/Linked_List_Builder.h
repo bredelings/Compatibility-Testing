@@ -39,7 +39,7 @@ struct linked_list_entry{
     string value;
     int color;
     unordered_set<int> belongs;
-    unordered_map<string, linked_list_entry> ajcn_list;
+    map<string, linked_list_entry> ajcn_list;
     string to;
     string from;
     int reinsert;
