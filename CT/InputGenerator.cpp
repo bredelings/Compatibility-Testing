@@ -23,6 +23,8 @@
 // the random number is implemented by using the method of , this method will finally return a 32 bit integer number
 
 #include "InputGenerator.h"
+#include <chrono>
+#include <algorithm>
 
 using namespace std;
 
