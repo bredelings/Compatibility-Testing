@@ -19,6 +19,7 @@
 // Detailed implementation of sparse table
 //
 
+#include <cmath>
 #include "SparseTable.h"
 
 using namespace std;
