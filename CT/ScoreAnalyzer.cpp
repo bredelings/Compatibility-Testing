@@ -20,6 +20,7 @@
 //
 
 #include "ScoreAnalyzer.h"
+#include <algorithm>
 #include <queue>
 #include <fstream>
 #include <sstream>
