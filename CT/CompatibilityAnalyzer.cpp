@@ -250,13 +250,13 @@ unordered_map<string, linked_list_entry> CompatibilityAnalyzer::convert2list(tre
                 }
 
                 _linked_list_finder = HPU.find(temp_node->label);
-                unordered_map<string, linked_list_entry>::iterator _linked_list_finder2 = HPU.find((*_chd_set)->label);
+                auto _linked_list_finder2 = HPU.find((*_chd_set)->label);
                 if(_linked_list_finder != HPU.end() && _linked_list_finder2 != HPU.end()){
                     //indicate that they have already been in the HPU
                     //need to check if there is an edge between them
                     //if there is, then check if belongs set is correct
                     //if not, then build up the edge, and update corresponding info correctly
-                    unordered_map<string, linked_list_entry>::iterator _node_exist_entry = _linked_list_finder->second.ajcn_list.find((*_chd_set)->label);
+                    auto _node_exist_entry = _linked_list_finder->second.ajcn_list.find((*_chd_set)->label);
                     if(_node_exist_entry == _linked_list_finder->second.ajcn_list.end()){
                         //indicate that there is no edge between them from the parent node's side of view
                         linked_list_entry *n = new linked_list_entry((*_chd_set)->label, WHITE, tree_index);

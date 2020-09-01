@@ -232,9 +232,9 @@ bool FastCompatibilityTest::father_child_relation(string original, int num, stri
 //given two strings u and v
 //delete the edge in the HPU structure
 void FastCompatibilityTest::delete_component_edge(string u, string v, unordered_map<string, linked_list_entry> *com) {
-    unordered_map<string, linked_list_entry>::iterator _hpu_entry = (*com).find(u);
+    auto _hpu_entry = (*com).find(u);
     if(_hpu_entry != (*com).end()){
-        unordered_map<string, linked_list_entry>::iterator _ajcn_list_entry = _hpu_entry->second.ajcn_list.find(v);
+        auto _ajcn_list_entry = _hpu_entry->second.ajcn_list.find(v);
         if(_ajcn_list_entry != _hpu_entry->second.ajcn_list.end()){
             _hpu_entry->second.ajcn_list.erase(_ajcn_list_entry);
         }
@@ -265,10 +265,10 @@ void FastCompatibilityTest::deletion(string l, Y *y, dis_Node *node, bool intern
                 if (_map_entry != (*y).map.end()) {
                     (*y).map.erase(_map_entry);
                 }
-                unordered_map<string, linked_list_entry> adj = _hpu_entry->second.ajcn_list;
+                auto adj = _hpu_entry->second.ajcn_list;
                 unordered_set<string> _temp_set;
-                for(unordered_map<string, linked_list_entry>::iterator _ajcn_list_entry = adj.begin(); _ajcn_list_entry != adj.end(); _ajcn_list_entry++){
-                    unordered_map<string, linked_list_entry>::iterator _hpu_entry2 = (*y).component.find(_ajcn_list_entry->first);
+                for(auto _ajcn_list_entry = adj.begin(); _ajcn_list_entry != adj.end(); _ajcn_list_entry++){
+                    auto _hpu_entry2 = (*y).component.find(_ajcn_list_entry->first);
                     if(_hpu_entry2 != (*y).component.end()){
                         if ((_hpu_entry2->second.belongs.find(*_belong_set_entry) != _hpu_entry2->second.belongs.end())
                             && father_child_relation(l, (*_belong_set_entry), _ajcn_list_entry->first)) {
@@ -316,11 +316,11 @@ void FastCompatibilityTest::deletion(string l, Y *y, dis_Node *node, bool intern
         Y ya[2];
         int seperate = 0;
         int fon = 0;
-        unordered_map<string, linked_list_entry> adj = _hpu_entry->second.ajcn_list;
+        auto adj = _hpu_entry->second.ajcn_list;
         int adjsize = 0;
 
         //for each edge starting from label l, delete this edge from the HPU structure
-        for(unordered_map<string, linked_list_entry>::iterator _ajcn_list_entry = adj.begin();
+        for(auto _ajcn_list_entry = adj.begin();
             _ajcn_list_entry != adj.end(); _ajcn_list_entry++){
             adjsize ++;
             string string1 = _ajcn_list_entry->first;
@@ -370,7 +370,7 @@ void FastCompatibilityTest::deletion(string l, Y *y, dis_Node *node, bool intern
                     (*y).semi_potential.erase(semi_potential_it);
                 }
 
-                for(unordered_map<string, linked_list_entry>::iterator _ajcn_list_entry2 = _hpu_entry2->second.ajcn_list.begin();
+                for(auto _ajcn_list_entry2 = _hpu_entry2->second.ajcn_list.begin();
                     _ajcn_list_entry2 != _hpu_entry2->second.ajcn_list.end(); _ajcn_list_entry2++){
                     visited.insert(_ajcn_list_entry2->first);
                     visit.push(_ajcn_list_entry2->first);
@@ -397,7 +397,7 @@ void FastCompatibilityTest::deletion(string l, Y *y, dis_Node *node, bool intern
                     unordered_map<string, linked_list_entry>::iterator _hpu_entry3 = (*y).component.find(string2);
                     if(_hpu_entry3 != (*y).component.end()){
                         count_kl1 += _hpu_entry3->second.kl;
-                        for(unordered_map<string, linked_list_entry>::iterator _ajcn_list_entry3 = _hpu_entry3->second.ajcn_list.begin();
+                        for(auto _ajcn_list_entry3 = _hpu_entry3->second.ajcn_list.begin();
                             _ajcn_list_entry3 != _hpu_entry3->second.ajcn_list.end(); _ajcn_list_entry3++){
                             unordered_set<string>::iterator _node_visited_entry = visited.find(_ajcn_list_entry3->first);
                             if(_node_visited_entry == visited.end()){

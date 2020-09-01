@@ -61,10 +61,10 @@ void SpanningForest::non_recursive_DFS_visit(unordered_map<string, linked_list_e
                 array_Node an(_entry_value, first_value);
                 node_array[_entry_value] = an;
 
-                for(unordered_map<string, linked_list_entry>::iterator _ajcn_list_entry = _top_list_entry.ajcn_list.begin();
+                for(auto _ajcn_list_entry = _top_list_entry.ajcn_list.begin();
                     _ajcn_list_entry != _top_list_entry.ajcn_list.end(); _ajcn_list_entry++){
                     string ajcn_value = _ajcn_list_entry->first;
-                    unordered_map<string, linked_list_entry>::iterator _ajcn_entry = graph_entry->find(ajcn_value);
+                    auto _ajcn_entry = graph_entry->find(ajcn_value);
                     if(_ajcn_entry != graph_entry->end()){
                         //record where this node pointed from
                         _ajcn_entry->second.from = _entry_value;
@@ -220,7 +220,7 @@ void SpanningForest::generate_spanning_forest_withNoColor(unordered_map<string, 
                 bool all_empty = false;
                 unordered_map<string, linked_list_entry>::iterator adjIter = _hpu.find(tmpStr);
                 if(adjIter != _hpu.end()){
-                    for(unordered_map<string, linked_list_entry>::iterator listIter = adjIter->second.ajcn_list.begin();
+                    for(auto listIter = adjIter->second.ajcn_list.begin();
                     listIter != adjIter->second.ajcn_list.end(); listIter++){
                         visIter = visitMap->find(listIter->first);
                         if(visIter != visitMap->end()){

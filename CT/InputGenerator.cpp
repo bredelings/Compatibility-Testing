@@ -1435,7 +1435,7 @@ void InputGenerator::convert_non2_subtree_to_linked_list(unordered_map<string, l
                     //need to check if there is an edge between them
                     //if there is, then check if belongs set is correct
                     //if not, then build up the edge, and update corresponding info correctly
-                    unordered_map<string, linked_list_entry>::iterator _node_exist_entry = _linked_list_entry->second.ajcn_list.find(_temp_node->substract_children[i]->label);
+                    auto _node_exist_entry = _linked_list_entry->second.ajcn_list.find(_temp_node->substract_children[i]->label);
                     if(_node_exist_entry == _linked_list_entry->second.ajcn_list.end()){
                         //indicate that there is no edge between them from the parent node's side of view
                         linked_list_entry *n = new linked_list_entry(_temp_node->substract_children[i]->label, WHITE, tree_num);
@@ -1580,7 +1580,7 @@ void InputGenerator::convert_subtree_to_linked_list(unordered_map<string, linked
                 //need to check if there is an edge between them
                 //if there is, then check if belongs set is correct
                 //if not, then build up the edge, and update corresponding info correctly
-                unordered_map<string, linked_list_entry>::iterator _node_exist_entry = _linked_list_entry->second.ajcn_list.find(_temp_node->substract_l_child->label);
+                auto _node_exist_entry = _linked_list_entry->second.ajcn_list.find(_temp_node->substract_l_child->label);
                 if(_node_exist_entry == _linked_list_entry->second.ajcn_list.end()){
                     //indicate that there is no edge between them from the parent node's side of view
                     linked_list_entry *n = new linked_list_entry(_temp_node->substract_l_child->label, WHITE, tree_num);
@@ -1715,7 +1715,7 @@ void InputGenerator::convert_subtree_to_linked_list(unordered_map<string, linked
                 //need to check if there is an edge between them
                 //if there is, then check if belongs set is correct
                 //if not, then build up the edge, and update corresponding info correctly
-                unordered_map<string, linked_list_entry>::iterator _node_exist_entry = _linked_list_entry->second.ajcn_list.find(_temp_node->substract_r_child->label);
+                auto _node_exist_entry = _linked_list_entry->second.ajcn_list.find(_temp_node->substract_r_child->label);
                 if(_node_exist_entry == _linked_list_entry->second.ajcn_list.end()){
                     //indicate that there is no edge between them from the parent node's side of view
                     linked_list_entry *n = new linked_list_entry(_temp_node->substract_r_child->label, WHITE, tree_num);

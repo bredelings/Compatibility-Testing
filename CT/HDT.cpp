@@ -327,9 +327,9 @@ void HDT::delete_Edge(string u, string v, bool fake) {
 
 //given two strings u and v, delete the linked-list entry in each adjacent list
 void HDT::delete_hpu_edge(string u, string v) {
-    unordered_map<string, linked_list_entry>::iterator _hpu_finder = hpu.find(u);
+    auto _hpu_finder = hpu.find(u);
     if(_hpu_finder != hpu.end()){
-        unordered_map<string, linked_list_entry>::iterator _ajcn_list_finder = _hpu_finder->second.ajcn_list.find(v);
+        auto _ajcn_list_finder = _hpu_finder->second.ajcn_list.find(v);
         if(_ajcn_list_finder != _hpu_finder->second.ajcn_list.end()){
             _hpu_finder->second.ajcn_list.erase(_ajcn_list_finder);
         }
@@ -582,9 +582,9 @@ void HDT::increase_level_of_smaller_tree(int level, int e_level) {
                     graph_Edge edge;
                     string end1 = "";
                     string end2 = "";
-                    unordered_map<string, linked_list_entry>::iterator _hpu_entry_finder = hpu.find(temp->value);
+                    auto _hpu_entry_finder = hpu.find(temp->value);
                     if(_hpu_entry_finder != hpu.end()){
-                        for(unordered_map<string, linked_list_entry>::iterator _ajcn_list_finder = _hpu_entry_finder->second.ajcn_list.begin();
+                        for(auto _ajcn_list_finder = _hpu_entry_finder->second.ajcn_list.begin();
                             _ajcn_list_finder != _hpu_entry_finder->second.ajcn_list.end(); _ajcn_list_finder++){
                             graph_Edge edge;
                             if(temp->value < _ajcn_list_finder->first){
